@@ -1,0 +1,276 @@
+/* GLOBAL */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 150vh;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-box {
+  aspect-ratio: 1 / 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.opa {
+  opacity: 1 !important;
+}
+
+/* END GLOBAL */
+
+/* Header */
+
+.header {
+  justify-content: space-between;
+  /* background: linear-gradient(to right, #a45 0%, #d45 100%); */
+  background: linear-gradient(to right, #555 0%, #777 100%);
+  opacity: 0.9;
+  min-height: auto;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.header .brand {
+  color: white;
+  font-size: 3rem;
+  padding: 10px 30px;
+  /* This will make diffrence on timing (solve next line) */
+  /* transition: 0.5s ease color, background-color; */
+  transition: 0.5s ease;
+  transition-property: color, background-color;
+}
+.header .brand:hover {
+  color: crimson;
+}
+
+.header .nav-menu .hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 30px;
+  height: 60px;
+  width: 60px;
+  position: relative;
+  cursor: pointer;
+  transform: scale(1);
+  border: 2px solid white;
+  border-radius: 50%;
+  z-index: 11;
+}
+.header .nav-menu .hamburger::after {
+  content: "";
+  position: absolute;
+  border: 4px solid white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  /* transform: scale(1.1); */
+  animation: fade-out 1s ease infinite;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 100%;
+    transform: scale(1);
+    border: 4px solid white;
+  }
+  100% {
+    opacity: 0%;
+    transform: scale(1.4);
+    border: 1px solid white;
+  }
+}
+
+.header .nav-menu .hamburger div {
+  width: 50%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+}
+
+.header .nav-menu .hamburger div::before,
+.header .nav-menu .hamburger div::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background-color: white;
+  transition: 0.3s ease;
+  transition-property: top, bottom;
+}
+
+.header .nav-menu .hamburger div::before {
+  top: 8px;
+}
+
+.header .nav-menu .hamburger div::after {
+  bottom: 8px;
+}
+
+.header .nav-menu .hamburger.active div::before {
+  top: 50%;
+}
+
+.header .nav-menu .hamburger.active div::after {
+  bottom: 50%;
+}
+
+/* 
+.header .nav-menu .hamburger.active div,
+.header .nav-menu .hamburger.active div::before,
+.header .nav-menu .hamburger.active div::after {
+  background-color: white;
+} */
+
+.header .nav-menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  /* background: linear-gradient(to right, #66f 0%, #77f 100%); */
+  background: linear-gradient(to right, #333 0%, #444 100%);
+  opacity: 0.96;
+  position: absolute;
+  left: 100%;
+  overflow: hidden;
+  height: calc(100vh - 60px);
+  width: 100%;
+  z-index: 10;
+  transition: 0.5s ease-in-out left;
+}
+
+.header .nav-menu ul.active {
+  left: 0%;
+}
+
+.header .nav-menu ul a {
+  display: block;
+  width: 100vw;
+  font-size: 3rem;
+  text-align: center;
+  color: white;
+  transition: 0.3s ease;
+  transition-property: color, background-color;
+}
+
+.header .nav-menu ul.active a:hover {
+  color: crimson;
+  background-color: rgb(255, 255, 255, 0.9);
+}
+/* End Header */
+
+/* Landing */
+
+main {
+  background-image: url(/imgs/hero-bg.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  position: relative;
+  z-index: 1;
+}
+@media only screen and (min-width: 100px) and (max-width: 600px) {
+  main {
+    background-position-x: 80%;
+  }
+}
+
+main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.5);
+}
+main .container {
+  flex-direction: column;
+  /* align-items & justfy-content take each others function cuz of display coloumn */
+  align-items: flex-start;
+  padding-left: 20px;
+  position: relative;
+  z-index: 2;
+}
+main h1 {
+  font-size: 3rem;
+  color: white;
+}
+/* main h1:nth-child(3) {
+  color: crimson;
+} */
+main .container a {
+  display: block;
+  font-size: 3rem;
+  width: fit-content;
+  height: auto;
+  margin-top: 10px;
+  padding: 10px;
+  border: 3px solid crimson;
+  color: white;
+  transition: 0.5s ease;
+  transition-property: color, background-color;
+}
+main .container a:hover {
+  background-color: crimson;
+}
+
+/* End Landing */
+
+/* Landing */
+
+@media only screen and (min-width: 900px) {
+  .header .nav-menu .hamburger {
+    display: none;
+  }
+  .header .nav-menu > ul {
+    flex-direction: row;
+    background: none;
+    position: static;
+    height: auto;
+    margin-right: 30px;
+    gap: 20px;
+  }
+  .header .nav-menu ul a {
+    width: fit-content;
+    font-size: 2rem;
+  }
+  .header .nav-menu ul a:hover {
+    color: crimson;
+  }
+}
+
+/* End media */
