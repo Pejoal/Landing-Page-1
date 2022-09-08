@@ -1,10 +1,8 @@
 # Pejoal
 
-This is one of my projects
+## Laning Page 1
 
-## Demo
-
-[Live] https://pejoal.000webhostapp.com/
+- [Live Demo](https://pejoal.000webhostapp.com/demo%201/)
 
 ## Skills
 
